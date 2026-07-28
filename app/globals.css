@@ -14,6 +14,10 @@
   --rise: 74 222 168;
   --fall: 255 107 122;
   --glow: rgba(82, 226, 255, 0.35);
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 /* Midnight Blue */
@@ -51,6 +55,7 @@ body {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
+
 .glow-line {
   box-shadow: 0 0 0 1px rgb(var(--cyan) / 0.18), 0 0 24px -6px var(--glow);
 }
@@ -82,6 +87,7 @@ body {
   position: relative;
   isolation: isolate;
 }
+
 .cta-glow::before {
   content: "";
   position: absolute;
@@ -91,13 +97,17 @@ body {
   z-index: -1;
   animation: cta-spin 5s linear infinite;
 }
+
 @property --cta-angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 }
+
 @keyframes cta-spin {
-  to { --cta-angle: 360deg; }
+  to {
+    --cta-angle: 360deg;
+  }
 }
 
 /* focus */
@@ -108,26 +118,54 @@ body {
 }
 
 /* custom scrollbar */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: rgb(var(--bg)); }
-::-webkit-scrollbar-thumb { background: rgb(var(--line)); border-radius: 8px; }
-::-webkit-scrollbar-thumb:hover { background: rgb(var(--cyan) / 0.6); }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--line));
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--cyan) / 0.6);
+}
 
 /* ticker marquee */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
+
 .marquee-track {
   animation: marquee 42s linear infinite;
 }
-.marquee-track:hover { animation-play-state: paused; }
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
 
 /* skeleton shimmer */
 @keyframes shimmer {
-  from { background-position: -200% 0; }
-  to { background-position: 200% 0; }
+  from {
+    background-position: -200% 0;
+  }
+
+  to {
+    background-position: 200% 0;
+  }
 }
+
 .skeleton {
   background: linear-gradient(90deg, rgb(var(--surface)) 25%, rgb(var(--line) / 0.5) 50%, rgb(var(--surface)) 75%);
   background-size: 200% 100%;
@@ -136,14 +174,31 @@ body {
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.8); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
 }
-.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+.pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

@@ -31,13 +31,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
-        <style>{`
-          :root {
-            --font-display: 'Space Grotesk', system-ui, sans-serif;
-            --font-body: 'IBM Plex Sans', system-ui, sans-serif;
-            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
-          }
-        `}</style>
       </head>
       <body className="font-body antialiased">
         <ToastProvider>{children}</ToastProvider>
